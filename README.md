@@ -9,6 +9,8 @@
 
 An interactive, beginner-friendly 3D Web Application designed to master the 3x3 Rubik's Cube. Features a real-time 3D interactive cube engine, step-by-step tutorial algorithms, speedcubing timer with stats, interactive quiz, and multi-language support (**English, Roman Urdu, Urdu**).
 
+🌐 **Live Demo:** [https://aa-gamerz22.github.io/AA-Rubik-s-Cube-Guide/](https://aa-gamerz22.github.io/AA-Rubik-s-Cube-Guide/)
+
 ---
 
 ## 🌟 Key Features
@@ -20,6 +22,13 @@ An interactive, beginner-friendly 3D Web Application designed to master the 3x3 
 * ⏱️ **Speedcubing Timer**: Built-in timer with Spacebar control, PB tracking, and Ao5 / Ao12 averages.
 * 🧠 **Interactive Quiz**: Dynamic quiz system to test algorithms, notations, and cube solving knowledge.
 * 🎨 **Modern Glassmorphism UI**: Includes Dark/Light theme switching and mobile responsive design.
+
+---
+
+## 🔗 Live Website Demo
+
+Aap is project ko direct apne browser mein try kar sakte hain:
+👉 **[Click Here to Open AA Rubik's Cube Guide](https://aa-gamerz22.github.io/AA-Rubik-s-Cube-Guide/)**
 
 ---
 
@@ -40,7 +49,10 @@ An interactive, beginner-friendly 3D Web Application designed to master the 3x3 
 
 ## ⚡ Quick Start
 
-### Option 1: Direct Run (No installation required)
+### Option 1: Live Demo (No Setup Needed)
+Visit: [https://aa-gamerz22.github.io/AA-Rubik-s-Cube-Guide/](https://aa-gamerz22.github.io/AA-Rubik-s-Cube-Guide/)
+
+### Option 2: Local Setup
 1. Repository clone karein:
    ```bash
-   git clone [https://github.com/your-username/3d-rubiks-cube-solver-guide.git](https://github.com/your-username/3d-rubiks-cube-solver-guide.git)
+   git clone [https://github.com/AA-Gamerz22/AA-Rubik-s-Cube-Guide.git](https://github.com/AA-Gamerz22/AA-Rubik-s-Cube-Guide.git)
