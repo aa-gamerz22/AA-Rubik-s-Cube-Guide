@@ -1,33 +1,46 @@
-# 🧩 Interactive 3D Rubik's Cube Solution Guide
+# 🧩 3D Rubik's Cube Solution & Learning Guide
 
-An interactive, beginner-friendly 3D web application designed to teach users how to solve the 3x3 Rubik's Cube layer-by-layer. Built using pure HTML5, CSS3, JavaScript, and **Three.js**, it features live 3D cube rendering, algorithm demonstrations, a speedcubing timer, an interactive quiz, and multi-language support.
+<p align="center">
+  <img src="https://img.shields.io/badge/Three.js-r128-black?style=for-the-badge&logo=three.js" alt="Three.js">
+  <img src="https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript" alt="JavaScript">
+  <img src="https://img.shields.io/badge/HTML5-CSS3-orange?style=for-the-badge&logo=html5" alt="HTML5/CSS3">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+</p>
 
----
-
-## ✨ Features
-
-* **🎮 Interactive 3D Cube Canvas:** Powered by Three.js with full drag-to-rotate, zoom, scrambling, resetting, auto-rotation, and speed controls.
-* **📖 Layer-by-Layer Step Guide:** Detailed step-by-step tutorial covering notations, White Cross, First Layer Corners, Second Layer, Top Cross, and Final Corner Alignment.
-* **🎥 Live Algorithm Player:** Click or play any formula/algorithm (`R U R' U'`) to visualize real-time moves on the 3D cube.
-* **🌐 Multi-Language Support:** Instant toggling between **Roman Urdu**, **English**, and **Urdu (اردو)**.
-* **⏱️ Built-in Speedcubing Timer:** Spacebar-triggered timer with lap history, personal best (PB) tracking, and average time calculations (Ao5, Ao12).
-* **🧠 Interactive Quiz:** Test your Rubik's Cube knowledge with dynamic multiple-choice questions.
-* **🎨 Dark / Light Mode & Responsive Design:** Fully responsive glassmorphism UI optimized for desktop and mobile devices.
-* **🖨️ Print & PDF Export Support:** Clean CSS print stylesheet to print or save the guide as PDF.
+An interactive, beginner-friendly 3D Web Application designed to master the 3x3 Rubik's Cube. Features a real-time 3D interactive cube engine, step-by-step tutorial algorithms, speedcubing timer with stats, interactive quiz, and multi-language support (**English, Roman Urdu, Urdu**).
 
 ---
 
-## 🛠️ Tech Stack
+## 🌟 Key Features
 
-* **Frontend:** HTML5, CSS3 (Custom Variables & Glassmorphism)
-* **JavaScript:** Vanilla JS (ES6+)
-* **3D Library:** [Three.js](https://threejs.org/) (r128)
-* **Fonts:** Google Fonts (*Poppins*, *Noto Nastaliq Urdu*, *Fira Code*)
+* 🎲 **3D Interactive Cube Canvas**: Live 3D cube rendered with Three.js. Supports drag-to-rotate, auto-rotation, scramble, reset, and speed tuning.
+* 📚 **Step-by-Step Layer Guide**: Complete layer-by-layer solving guide with move annotations, algorithm previews, and visual illustrations.
+* 🎥 **Live Move Visualizer**: Click or play any formula (`R U R' U'`) to watch real-time move execution on the 3D cube.
+* 🌐 **Multi-Language Support**: One-click switching between **Roman Urdu**, **English**, and **Urdu (اردو)**.
+* ⏱️ **Speedcubing Timer**: Built-in timer with Spacebar control, PB tracking, and Ao5 / Ao12 averages.
+* 🧠 **Interactive Quiz**: Dynamic quiz system to test algorithms, notations, and cube solving knowledge.
+* 🎨 **Modern Glassmorphism UI**: Includes Dark/Light theme switching and mobile responsive design.
 
 ---
 
-## 🚀 Quick Start / Local Setup
+## 📷 Screenshots & Guide Visuals
 
-1. **Clone the repository:**
+<p align="center">
+  <b>Rubik's Cube Notations & Basic Moves</b><br>
+  <img src="cube-move.jpg" alt="Cube Notations Guide" width="600">
+</p>
+
+<p align="center">
+  <img src="white-cross.webp" alt="White Cross Step" width="280">
+  <img src="white-corner.webp" alt="First Layer Corners" width="280">
+  <img src="second-layer.webp" alt="Second Layer" width="280">
+</p>
+
+---
+
+## ⚡ Quick Start
+
+### Option 1: Direct Run (No installation required)
+1. Repository clone karein:
    ```bash
    git clone [https://github.com/your-username/3d-rubiks-cube-solver-guide.git](https://github.com/your-username/3d-rubiks-cube-solver-guide.git)
