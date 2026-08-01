@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="google-site-verification" content="w72xmb053R-cstNLCzvuViIqqkSfuwQ6T43mxDGtuJM" />
+  <link rel="icon" type="image/png" href="unnamed.png">
+<title>Ultimate Rubik's Cube Guide Hub — 2x2 to 5x5 + Pyraminx</title>
+<meta name="description" content="Interactive 3D solving guides for every twisty puzzle — 2x2, 3x3, 4x4, 5x5 and the Pyramid (Pyraminx). Step-by-step, multi-language, with a live 3D cube.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #080b16;
+    --bg-grad-1: #0b1224;
+    --bg-grad-2: #120a22;
+    --card-bg: rgba(30,41,59,0.55);
+    --card-bg-solid: #141c30;
+    --card-border: rgba(148,163,184,0.16);
+    --text: #f4f7fc;
+    --text-muted: #9aa7bd;
+    --primary: #38bdf8;
+    --primary-2: #22d3ee;
+    --accent: #f59e0b;
+    --accent-2: #a855f7;
+    --success: #4ade80;
+    --danger: #f87171;
+    --glow: rgba(56,189,248,0.35);
+    --glow-accent: rgba(245,158,11,0.28);
+    --shadow: 0 10px 30px rgba(0,0,0,0.45);
+    --radius: 20px;
+    --code-bg: #060a13;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background:
+      radial-gradient(1100px 600px at 85% -10%, var(--glow), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, var(--glow-accent), transparent 55%),
+      linear-gradient(160deg, var(--bg-grad-1), var(--bg-grad-2) 60%, var(--bg));
+    background-attachment: fixed;
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--primary); color: #04101c; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Nav ---------- */
+  .navbar {
+    padding: 18px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1180px; margin: 0 auto; flex-wrap: wrap; gap: 10px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; }
+  .brand .cube-emoji { font-size: 1.5rem; filter: drop-shadow(0 0 10px var(--glow)); }
+  .nav-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .nav-links a {
+    color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px; border: 1px solid var(--card-border);
+    background: var(--card-bg); transition: all 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--primary); border-color: var(--primary); box-shadow: 0 0 0 3px var(--glow); }
+
+  /* ---------- Hero ---------- */
+  header.hero { text-align: center; padding: 50px 20px 20px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 600;
+    background: var(--card-bg); border: 1px solid var(--card-border); color: var(--primary-2);
+    padding: 7px 16px; border-radius: 999px; margin-bottom: 22px;
+  }
+  header.hero h1 {
+    font-size: clamp(2rem, 5.5vw, 3.4rem); font-weight: 900; line-height: 1.15;
+    background: linear-gradient(90deg, var(--primary), var(--accent-2) 55%, var(--accent));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 16px;
+  }
+  header.hero p.sub {
+    color: var(--text-muted); font-size: 1.05rem; max-width: 620px; margin: 0 auto 8px;
+  }
+  header.hero p.sub-roman {
+    color: var(--text-muted); opacity: 0.75; font-size: 0.92rem; max-width: 620px; margin: 0 auto 34px;
+  }
+
+  /* ---------- Feature strip ---------- */
+  .feature-strip {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+    margin-bottom: 46px;
+  }
+  .feature-pill {
+    background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 999px;
+    padding: 8px 16px; font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;
+  }
+
+  /* ---------- Cube grid ---------- */
+  .cube-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px; padding-bottom: 60px;
+  }
+
+  .cube-card {
+    position: relative; background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 28px 22px; text-decoration: none; color: var(--text);
+    box-shadow: var(--shadow); overflow: hidden; backdrop-filter: blur(14px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex; flex-direction: column; gap: 10px; min-height: 250px;
+  }
+  .cube-card::before {
+    content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease;
+    background: radial-gradient(280px 180px at 30% 0%, var(--card-glow, var(--glow)), transparent 70%);
+    pointer-events: none;
+  }
+  .cube-card:hover { transform: translateY(-6px); border-color: var(--card-accent, var(--primary)); box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+  .cube-card:hover::before { opacity: 1; }
+
+  .cube-card .cube-emoji-big {
+    font-size: 2.6rem; filter: drop-shadow(0 0 14px var(--card-glow, var(--glow)));
+    line-height: 1;
+  }
+  .cube-card h3 { font-size: 1.25rem; font-weight: 700; }
+  .cube-card .piece-name { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; margin-top: -6px; }
+  .cube-card p.desc { color: var(--text-muted); font-size: 0.88rem; flex-grow: 1; }
+
+  .status-badge {
+    position: absolute; top: 18px; right: 18px; font-size: 0.65rem; font-weight: 700;
+    padding: 4px 11px; border-radius: 999px; letter-spacing: 0.3px;
+  }
+  .status-ready { background: rgba(74,222,128,0.16); color: var(--success); border: 1px solid rgba(74,222,128,0.35); }
+  .status-soon { background: rgba(245,158,11,0.14); color: var(--accent); border: 1px solid rgba(245,158,11,0.3); }
+
+  .cube-card .cta {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 0.88rem; font-weight: 700;
+    color: var(--card-accent, var(--primary)); margin-top: 6px;
+  }
+  .cube-card:hover .cta span.arrow { transform: translateX(4px); }
+  .cube-card .cta span.arrow { display: inline-block; transition: transform 0.25s ease; }
+
+  .cube-card .difficulty { font-size: 0.7rem; color: var(--text-muted); }
+  .difficulty .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--card-border); margin-right: 2px; }
+  .difficulty .dot.on { background: var(--card-accent, var(--primary)); }
+
+  /* per-card accent colors */
+  #card-2x2 { --card-accent: #4ade80; --card-glow: rgba(74,222,128,0.28); }
+  #card-3x3 { --card-accent: #38bdf8; --card-glow: rgba(56,189,248,0.35); }
+  #card-4x4 { --card-accent: #a855f7; --card-glow: rgba(168,85,247,0.3); }
+  #card-5x5 { --card-accent: #f472b6; --card-glow: rgba(244,114,182,0.3); }
+  #card-pyramid { --card-accent: #f59e0b; --card-glow: rgba(245,158,11,0.3); }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer {
+    text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 30px 16px 50px;
+    border-top: 1px solid var(--card-border); margin-top: 10px;
+  }
+  footer.site-footer .heart { color: var(--danger); }
+  footer.site-footer a { color: var(--primary-2); text-decoration: none; }
+  footer.site-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    header.hero h1 { font-size: 1.9rem; }
+    .navbar { justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="brand"><span class="cube-emoji">🧩</span> Cube Guide Hub</div>
+  <div class="nav-links">
+    <a href="https://github.com/AA-Gamerz22/AA-Rubik-s-Cube-Guide" target="_blank" rel="noopener">⭐ GitHub</a>
+    <a href="#cubes">🎲 All Puzzles</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-badge">🎮 Live 3D Engine · 🌐 3 Languages · ⏱️ Speedcubing Timer</div>
+  <h1>Ultimate Twisty Puzzle<br>Solving Guide</h1>
+  <p class="sub">Pick your puzzle and learn to solve it step-by-step with a real, drag-to-turn 3D cube — not just static pictures.</p>
+  <p class="sub-roman">Apna puzzle chunein aur seekhein — har guide mein live 3D cube, algorithms, aur practice timer shamil hai.</p>
+
+  <div class="feature-strip">
+    <span class="feature-pill">🖐️ Drag-to-turn 3D Cube</span>
+    <span class="feature-pill">📋 One-click Copy Algorithms</span>
+    <span class="feature-pill">🔊 Algorithm Pronunciation</span>
+    <span class="feature-pill">🧠 Knowledge Quiz</span>
+    <span class="feature-pill">🎨 4 Themes</span>
+  </div>
+</header>
+
+<main class="container" id="cubes">
+  <div class="cube-grid">
+
+    <a href="2x2/index.html" class="cube-card" id="card-2x2">
+      <span class="status-badge status-soon">🚧 COMING SOON</span>
+      <div class="cube-emoji-big">🔲</div>
+      <h3>2×2</h3>
+      <div class="piece-name">Pocket Cube</div>
+      <p class="desc">The perfect starting point — no edges, just corners. Learn the Ortega method basics.</p>
+      <div class="difficulty">Difficulty: <span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="cta">Start Guide <span class="arrow">→</span></div>
+    </a>
+
+    <a href="3x3/index.html" class="cube-card" id="card-3x3">
+      <span class="status-badge status-ready">✅ READY</span>
+      <div class="cube-emoji-big">🧩</div>
+      <h3>3×3</h3>
+      <div class="piece-name">Classic Rubik's Cube</div>
+      <p class="desc">The original. Full beginner Layer-by-Layer method with a live 3D cube, timer, and quiz.</p>
+      <div class="difficulty">Difficulty: <span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="cta">Start Guide <span class="arrow">→</span></div>
+    </a>
+
+    <a href="4x4/index.html" class="cube-card" id="card-4x4">
+      <span class="status-badge status-soon">🚧 COMING SOON</span>
+      <div class="cube-emoji-big">🟪</div>
+      <h3>4×4</h3>
+      <div class="piece-name">Rubik's Revenge</div>
+      <p class="desc">Center-building, edge-pairing, and the infamous OLL/PLL parity cases.</p>
+      <div class="difficulty">Difficulty: <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+      <div class="cta">Start Guide <span class="arrow">→</span></div>
+    </a>
+
+    <a href="5x5/index.html" class="cube-card" id="card-5x5">
+      <span class="status-badge status-soon">🚧 COMING SOON</span>
+      <div class="cube-emoji-big">🟥</div>
+      <h3>5×5</h3>
+      <div class="piece-name">Professor's Cube</div>
+      <p class="desc">Bigger centers, more edge pairs — the same 4×4 method, one size up.</p>
+      <div class="difficulty">Difficulty: <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
+      <div class="cta">Start Guide <span class="arrow">→</span></div>
+    </a>
+
+    <a href="pyramid/index.html" class="cube-card" id="card-pyramid">
+      <span class="status-badge status-soon">🚧 COMING SOON</span>
+      <div class="cube-emoji-big">🔺</div>
+      <h3>Pyraminx</h3>
+      <div class="piece-name">Pyramid Cube</div>
+      <p class="desc">Four sides, tips that solve themselves, and a whole new set of moves to learn.</p>
+      <div class="difficulty">Difficulty: <span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="cta">Start Guide <span class="arrow">→</span></div>
+    </a>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>Made with <span class="heart">♥</span> for cubers everywhere — practice daily, solve happily!</p>
+  <p style="margin-top:6px; font-size:0.78rem;">🧩 3×3 is fully ready — 2×2 / 4×4 / 5×5 / Pyraminx guides are on the way.</p>
+</footer>
+
+</body>
+</html>
